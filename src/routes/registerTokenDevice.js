@@ -13,7 +13,6 @@ async function findOne(tokenDevice) {
 async function checkExistsToken(tokenDevice) {
 	try {
 		let device = await findOne(tokenDevice);
-		console.log(device);
 		if (device) return true;
 		return false;	
 	} catch (error) {
@@ -30,8 +29,6 @@ async function checkExistsToken(tokenDevice) {
 async function regiterTokenDevice(req, res) {
 	try {
 		const {tokenDevice, userId} = req.body;
-		console.log({ tokenDevice, userId });
-		console.log('hehe');
 		const isExists = await checkExistsToken(tokenDevice);
 		if (isExists) {
 			res.json({

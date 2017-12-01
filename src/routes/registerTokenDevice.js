@@ -1,9 +1,25 @@
 import TokenDevice from '../models/TokenDevice';
+import { resolve } from 'url';
+
+async function findOne(tokenDevice) {
+	return new Promise((resolve, reject) => {
+		TokenDevice.findOne({tokenDevice}, (error, data) => {
+			if (error) return reject(error);
+			return resolve(data);
+		});
+	});
+}
 
 async function checkExistsToken(tokenDevice) {
-	let device = await TokenDevice.findOne({tokenDevice});
-	if (device) return true;
-	else return false;
+	try {
+		let device = await findOne(tokenDevice);
+		console.log(device);
+		if (device) return true;
+		return false;	
+	} catch (error) {
+		console.log(error);
+		return false;
+	}
 }
 
 /**
@@ -14,7 +30,9 @@ async function checkExistsToken(tokenDevice) {
 async function regiterTokenDevice(req, res) {
 	try {
 		const {tokenDevice, userId} = req.body;
-		const isExists = checkExistsToken(tokenDevice);
+		console.log({ tokenDevice, userId });
+		console.log('hehe');
+		const isExists = await checkExistsToken(tokenDevice);
 		if (isExists) {
 			res.json({
 				error: true,

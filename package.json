@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec babel-node src/app.js",
+    "dev": "./node_modules/.bin/nodemon --exec babel-node src/app.js",
+    "begin": "node src/app.js",
     "prestart": "babel src --out-dir dist",
     "start": "npm run prestart && node bootstrap.js"
   },

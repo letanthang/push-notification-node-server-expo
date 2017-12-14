@@ -1,0 +1,119 @@
+{
+	"info": {
+		"name": "expo-push-test",
+		"_postman_id": "4637c093-2406-43d1-4609-2be3f1dd5fd7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"secretCode\": \"MAMFRESH_APP\",\n\t\"tokenDevice\": \"la123l45jk3jkas32df\",\n\t\"userId\": 1232\n}"
+				},
+				"url": {
+					"raw": "http://{{pushdomain}}/register-token-device",
+					"protocol": "http",
+					"host": [
+						"{{pushdomain}}"
+					],
+					"path": [
+						"register-token-device"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "add token aws",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"secretCode\": \"MAMFRESH_APP\",\n\t\"tokenDevice\": \"la123143545dfas32df\",\n\t\"userId\": 1232\n}"
+				},
+				"url": {
+					"raw": "http://ec2-52-15-37-87.us-east-2.compute.amazonaws.com:1234/register-token-device",
+					"protocol": "http",
+					"host": [
+						"ec2-52-15-37-87",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "1234",
+					"path": [
+						"register-token-device"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "push notification",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"hello. this is test message\", \n\t\"data\": {}, \n\t\"tokenDevice\": \"ExponentPushToken[Iq96RDAYbpkGrcHbyFlbEc]\"\n}"
+				},
+				"url": {
+					"raw": "http://{{pushdomain}}/push-notification",
+					"protocol": "http",
+					"host": [
+						"{{pushdomain}}"
+					],
+					"path": [
+						"push-notification"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "list-token-device",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{pushdomain}}/list-token-device",
+					"protocol": "http",
+					"host": [
+						"{{pushdomain}}"
+					],
+					"path": [
+						"list-token-device"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -1,4 +1,13 @@
 # Simple push notifiation
+Push Notification Server for Expo Project
+- register device token
+- list device token
+- push notification message
+
+Deloyment note:
+1. normal deploy: this app need to connect to mongo db. please config mongo url
+2. build to docker : Need Another docker name "mongo" on the same network 
+
 
 ## Installation
 ```nginx
